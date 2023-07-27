@@ -1,0 +1,7 @@
+pandas
+numpy
+nltk
+seaborn
+scikit-learn
+Pillow
+streamlit
