@@ -49,14 +49,16 @@ class predict_input:
         # Load the model from the file
         try:
             classifier = joblib.load('model.pkl')
-            global prediction
+            
             # Use the loaded model to make predictions
             prediction = classifier.predict(input)
+            return prediction
 
         except InconsistentVersionWarning as w:
            print(w.original_sklearn_version)
     def __getitem__(self):
-        return prediction
+        func = get_prediction()
+        return func
     
         
 
