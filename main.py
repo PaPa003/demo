@@ -19,7 +19,7 @@ st.set_page_config(page_title            = "Fake review prediction",
 def prediction(input_data):
 
     # loading the model
-    model = predict_input.__getitem__(input_data)
+    model = predict_input.get_prediction(input_data)
     st.write(model)
 
     try:
