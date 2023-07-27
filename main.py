@@ -26,8 +26,8 @@ def prediction(input_data):
       if (model[0]==0):
         return 'The Review is Real'
 
-    else:
-        return 'The Review is Fake'
+      else:
+          return 'The Review is Fake'
       
     except TypeError as e:
       print(e)
