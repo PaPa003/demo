@@ -22,11 +22,16 @@ def prediction(input_data):
     model = predict_input.get_prediction(input_data)
     print(model)
 
-    if (model[0]==0):
+    try:
+      if (model[0]==0):
         return 'The Review is Real'
 
     else:
         return 'The Review is Fake'
+      
+    except TypeError as e:
+      print(e)
+      print("handled successfully")
 
 
 
