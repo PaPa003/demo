@@ -35,10 +35,10 @@ class Preprocessing:
         try:
             vec = joblib.load('vectorizer.pkl')
             pre_num = vec.transform(pre)
+            return pre_num
         except InconsistentVersionWarning as w:
             print(w.original_sklearn_version)
-        
-        return pre_num
+             
 
 class predict_input:
     def get_prediction(input_data):
@@ -50,9 +50,10 @@ class predict_input:
             classifier = joblib.load('model.pkl')
             # Use the loaded model to make predictions
             prediction = classifier.predict(input)
+            return prediction
         except InconsistentVersionWarning as w:
            print(w.original_sklearn_version)
     
-        return prediction
+        
 
 
