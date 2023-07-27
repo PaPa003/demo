@@ -27,7 +27,7 @@ class Preprocessing:
     def preprocess_data(y):
         pre = [Preprocessing.stemmed(y)]
         # Load the model from the file
-        vec = joblib.load('vectorizer.pkl')
+        vec = joblib.load(r'vectorizer.pkl')
         pre_num = vec.transform(pre)
         return pre_num
 
@@ -36,7 +36,7 @@ class predict_input:
         input = Preprocessing.preprocess_data(input_data)
 
         # Load the model from the file
-        classifier = joblib.load('model.pkl')
+        classifier = joblib.load(r'model.pkl')
         
         # Use the loaded model to make predictions
         prediction = classifier.predict(input)
