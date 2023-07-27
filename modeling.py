@@ -41,9 +41,6 @@ class Preprocessing:
              
 
 class predict_input:
-    def __getitem__(self):
-        func = get_prediction()
-        return func
     
     def get_prediction(input_data):
         
