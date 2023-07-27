@@ -10,6 +10,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from joblib import Parallel, delayed
 import joblib
+from sklearn.exceptions import InconsistentVersionWarning
+warnings.simplefilter("error", InconsistentVersionWarning)
 import nltk
 nltk.download('stopwords')
 
@@ -25,18 +27,28 @@ class Preprocessing:
         return stemmed_content
     
     def preprocess_data(y):
+        
         pre = [Preprocessing.stemmed(y)]
+        
         # Load the model from the file
-        vec = joblib.load(r'vectorizer.pkl')
+        try:
+           vec = joblib.load('vectorizer.pkl')
+        except InconsistentVersionWarning as w:
+           print(w.original_sklearn_version)
+        
         pre_num = vec.transform(pre)
         return pre_num
 
 class predict_input:
     def get_prediction(input_data):
+        
         input = Preprocessing.preprocess_data(input_data)
 
         # Load the model from the file
-        classifier = joblib.load(r'model.pkl')
+        try:
+           classifier = joblib.load('model.pkl')
+        except InconsistentVersionWarning as w:
+           print(w.original_sklearn_version)
         
         # Use the loaded model to make predictions
         prediction = classifier.predict(input)
