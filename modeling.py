@@ -10,6 +10,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from joblib import Parallel, delayed
 import joblib
+import nltk
+nltk.dowload('stopwords')
 
 
 class Preprocessing:
