@@ -20,7 +20,7 @@ def prediction(input_data):
 
     # loading the model
     model = predict_input.__getitem__(input_data)
-    print(model)
+    st.write(model)
 
     try:
       if (model[0]==0):
@@ -30,7 +30,7 @@ def prediction(input_data):
           return 'The Review is Fake'
       
     except TypeError as e:
-      print(e)
+      st.write(e)
       print("handled successfully")
 
 
