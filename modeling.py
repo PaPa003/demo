@@ -33,11 +33,11 @@ class Preprocessing:
         
         # Load the model from the file
         try:
-           vec = joblib.load('vectorizer.pkl')
+            vec = joblib.load('vectorizer.pkl')
+            pre_num = vec.transform(pre)
         except InconsistentVersionWarning as w:
-           print(w.original_sklearn_version)
+            print(w.original_sklearn_version)
         
-        pre_num = vec.transform(pre)
         return pre_num
 
 class predict_input:
@@ -47,13 +47,12 @@ class predict_input:
 
         # Load the model from the file
         try:
-           classifier = joblib.load('model.pkl')
+            classifier = joblib.load('model.pkl')
+            # Use the loaded model to make predictions
+            prediction = classifier.predict(input)
         except InconsistentVersionWarning as w:
            print(w.original_sklearn_version)
-        
-        # Use the loaded model to make predictions
-        prediction = classifier.predict(input)
-
+    
         return prediction
 
 
