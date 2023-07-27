@@ -49,6 +49,7 @@ class predict_input:
         # Load the model from the file
         try:
             classifier = joblib.load('model.pkl')
+            global prediction
             # Use the loaded model to make predictions
             prediction = classifier.predict(input)
 
