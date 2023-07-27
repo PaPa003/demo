@@ -41,6 +41,7 @@ class Preprocessing:
              
 
 class predict_input:
+    
     def get_prediction(input_data):
         
         input = Preprocessing.preprocess_data(input_data)
@@ -53,6 +54,8 @@ class predict_input:
             return prediction
         except InconsistentVersionWarning as w:
            print(w.original_sklearn_version)
+    def __getitem__(self):
+        return prediction
     
         
 
