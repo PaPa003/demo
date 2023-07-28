@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import re
+import streamlit as st
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -45,17 +46,12 @@ class predict_input:
     def get_prediction(input_data):
         
         input = Preprocessing.preprocess_data(input_data)
-
+        st.write(input)
         # Load the model from the file
-        try:
-            classifier = joblib.load('model.pkl')
-            
-            # Use the loaded model to make predictions
-            prediction = classifier.predict(input)
-            return prediction
-
-        except InconsistentVersionWarning as w:
-           print(w.original_sklearn_version)
+        classifier = joblib.load('model.pkl')
+        # Use the loaded model to make predictions
+        prediction = classifier.predict(input)
+        return prediction
     
     
         
