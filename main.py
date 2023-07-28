@@ -20,9 +20,10 @@ def prediction(input_data):
     model = predict_input.get_prediction(input_data)[0]
 
     if (model==0):
-        return 'The Review is Real'
+        st.success('The review is Real')
     else:
-        return 'The Review is Fake'
+        st.warning('The review is Fake')
+
 
 
 
