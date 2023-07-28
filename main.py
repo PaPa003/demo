@@ -15,11 +15,9 @@ st.set_page_config(page_title            = "Fake review prediction",
 
 # creating a function for prediction
 def prediction(input_data):
-    st.write(input_data)
 
     # loading the model
     model = predict_input.get_prediction(input_data)[0]
-    st.write(model)
 
     if (model==0):
         return 'The Review is Real'

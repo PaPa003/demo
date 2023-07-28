@@ -29,13 +29,9 @@ class Preprocessing:
     def preprocess_data(y):
         
         pre = [Preprocessing.stemmed(y)]
-        st.write(f'Stemmed: {pre}')
-        
         # Load the model from the file
         vec = joblib.load('vectorizer.pkl')
-        st.write(vec)
         pre_num = vec.transform(pre)
-        st.write(f'Vectorized test: {pre_num}')
         return pre_num
              
 
@@ -44,7 +40,6 @@ class predict_input:
     def get_prediction(input_data):
         
         input = Preprocessing.preprocess_data(input_data)
-        st.write(f'The input in numbers: {input}')
         # Load the model from the file
         classifier = joblib.load('model.pkl')
         # Use the loaded model to make predictions
