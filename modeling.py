@@ -46,7 +46,7 @@ class predict_input:
     def get_prediction(input_data):
         
         input = Preprocessing.preprocess_data(input_data)
-        st.write(input)
+        st.write(f'The input in numbers: {input}')
         # Load the model from the file
         classifier = joblib.load('model.pkl')
         # Use the loaded model to make predictions
