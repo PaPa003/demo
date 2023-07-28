@@ -31,14 +31,12 @@ class Preprocessing:
     def preprocess_data(y):
         
         pre = [Preprocessing.stemmed(y)]
+        st.write(f'Stemmed: {pre}')
         
         # Load the model from the file
-        try:
-            vec = joblib.load('vectorizer.pkl')
-            pre_num = vec.transform(pre)
-            return pre_num
-        except InconsistentVersionWarning as w:
-            print(w.original_sklearn_version)
+        vec = joblib.load('vectorizer.pkl')
+        pre_num = vec.transform(pre)
+        return pre_num
              
 
 class predict_input:
