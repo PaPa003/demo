@@ -20,11 +20,9 @@ def prediction(input_data):
     model = predict_input.get_prediction(input_data)[0]
 
     if (model==0):
-        st.success('The review is Real')
+        return st.success('The review is Real')
     else:
-        st.warning('The review is Fake')
-
-
+        return st.warning('The review is Fake')
 
 
 def main():
@@ -44,11 +42,10 @@ def main():
 
     # creating a button for prediction
     if st.button('Submit'):
-        result = prediction(Review)
-
-    st.success(result)
+        return prediction(Review)
 
 
-main()
+if __name__ == '__main__':
+    st.main()
 
 
