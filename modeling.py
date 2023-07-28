@@ -12,8 +12,6 @@ from sklearn.metrics import accuracy_score
 from joblib import Parallel, delayed
 import joblib
 import warnings
-from sklearn.exceptions import InconsistentVersionWarning
-warnings.simplefilter("error", InconsistentVersionWarning)
 import nltk
 nltk.download('stopwords')
 
