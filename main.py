@@ -13,25 +13,17 @@ st.set_page_config(page_title            = "Fake review prediction",
                    menu_items            = None)
 
 
-
-
 # creating a function for prediction
 def prediction(input_data):
 
     # loading the model
-    model = predict_input.get_prediction(input_data)
+    model = predict_input.get_prediction(input_data)[0]
     st.write(model)
 
-    try:
-      if (model[0]==0):
+    if (model==0):
         return 'The Review is Real'
-
-      else:
-          return 'The Review is Fake'
-      
-    except TypeError as e:
-      st.write(e)
-      print("handled successfully")
+    else:
+        return 'The Review is Fake'
 
 
 
@@ -57,9 +49,6 @@ def main():
     st.success(result)
 
 
-
-
-if __name__ == '__main__':
-    main()
+main()
 
 
