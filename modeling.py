@@ -36,6 +36,7 @@ class Preprocessing:
         # Load the model from the file
         vec = joblib.load('vectorizer.pkl')
         pre_num = vec.transform(pre)
+        st.write(f'Vectorized test: {pre_num}')
         return pre_num
              
 
